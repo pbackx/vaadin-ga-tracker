@@ -26,17 +26,11 @@ import com.vaadin.ui.UI;
  *
  * @author Sami Ekblad / Marc Englund / Artur Signell
  */
-@JavaScript({ "https://www.google-analytics.com/ga.js", "tracker_extension.js" })
+@JavaScript("tracker_extension.js")
 public class GoogleAnalyticsTracker extends AbstractJavaScriptExtension
         implements ViewChangeListener {
 
     private static final long serialVersionUID = 1L;
-
-    /**
-     * Instantiate new Google Analytics tracker by id.
-     */
-    public GoogleAnalyticsTracker() {
-    }
 
     /**
      * Instantiate new Google Analytics tracker by id.
@@ -46,7 +40,7 @@ public class GoogleAnalyticsTracker extends AbstractJavaScriptExtension
      *            'UA-658457-8'.
      */
     public GoogleAnalyticsTracker(String trackerId) {
-        setTrackerId(trackerId);
+    	this(trackerId, null);
     }
 
     /**
@@ -60,8 +54,10 @@ public class GoogleAnalyticsTracker extends AbstractJavaScriptExtension
      *            'vaadin.com'.
      */
     public GoogleAnalyticsTracker(String trackerId, String domainName) {
-        this(trackerId);
+        setTrackerId(trackerId);
         setDomainName(domainName);
+        
+        callFunction("create", trackerId, domainName);
     }
 
     /**
