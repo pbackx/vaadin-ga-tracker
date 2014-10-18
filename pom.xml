@@ -18,4 +18,18 @@
     <module>vaadin-ga-tracker</module>
     <module>vaadin-ga-tracker-demo</module>
   </modules>
+
+  <distributionManagement>
+    <repository>
+      <id>deployment</id>
+      <name>Internal Releases</name>
+      <url>http://nexus-peated.rhcloud.com/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>deployment</id>
+      <name>Internal Snapshots</name>
+      <url>http://nexus-peated.rhcloud.com/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
